@@ -1,15 +1,8 @@
 import requests
-from bs4 import BeautifulSoup
 
-def append_text_to_file(website, output):
-    response = requests.get(website)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    text = soup.get_text()
+hey = requests.get("https://tr.wikipedia.org/api/rest_v1/page/random/summary")
 
-    with open(output, 'a', encoding='utf-8') as file:
-        file.write(text)
+data = hey.json()
 
-website = "https://tr.wikipedia.org/wiki/%C3%96zel:Rastgele"
-output = "output.txt"
-
-append_text_to_file(website, output)
+with open("output.txt", 'a', encoding='utf-8') as file:
+        file.write(data["extract"])
