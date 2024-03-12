@@ -1,6 +1,6 @@
 import requests
 
-hey = requests.get("https://tr.wikipedia.org/api/rest_v1/page/random/summary")
+hey = requests.get("https://en.wikipedia.org/api/rest_v1/page/random/summary")
 
 data = hey.json()
 
